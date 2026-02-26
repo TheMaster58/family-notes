@@ -3,7 +3,7 @@ import axios from 'axios';
 import ReactMarkdown from 'react-markdown';
 import { Send, User, Calendar, MessageSquare } from 'lucide-react';
 
-const API_BASE_URL = 'http://localhost:8000';
+const API_BASE_URL = '';
 
 function App() {
   const [notes, setNotes] = useState([]);

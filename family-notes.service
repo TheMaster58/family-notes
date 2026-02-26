@@ -3,9 +3,9 @@ Description=Family Notes FastAPI Backend
 After=network.target
 
 [Service]
-User=pi
-WorkingDirectory=/home/pi/family-notes/backend
-ExecStart=/home/pi/family-notes/backend/venv/bin/uvicorn main:app --host 127.0.0.1 --port 8000
+User=saurabh
+WorkingDirectory=/home/saurabh/Projects/family-notes/backend
+ExecStart=/home/saurabh/Projects/family-notes/backend/venv/bin/uvicorn main:app --host 127.0.0.1 --port 8000
 Restart=always
 
 [Install]
