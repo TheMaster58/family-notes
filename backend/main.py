@@ -41,12 +41,8 @@ def get_device_name(ip: str) -> str:
         res = subprocess.run(["tailscale", "whois", "--json", ip], capture_output=True, text=True, timeout=2)
         if res.returncode == 0 and res.stdout:
             data = json.loads(res.stdout)
-            # Use machine name or user name
-            machine_node = data.get("Machine", {}).get("HostName", "")
-            user_node = data.get("User", {}).get("DisplayName", "")
-            
-            # Combine or pick one
-            device = machine_node or user_node or f"Device-{ip}"
+            # Use hostname
+            device = data.get("Node", {}).get("Hostinfo", {}).get("Hostname", "")
             TS_CACHE[ip] = (device, now + CACHE_TTL)
             return device
     except Exception as e:
